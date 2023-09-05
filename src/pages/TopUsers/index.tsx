@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import store from "src/store";
 import { setCatalog, setUser } from "src/store/actions";
 import UsersService from "src/utils/api/services/Users";
-import { JWTPayload } from "src/utils/interfaces/jwt-payload.interface";
+// import { JWTPayload } from "src/utils/interfaces/jwt-payload.interface";
 import { getItem } from "src/utils/local-storage";
 import jwt from "jwt-decode";
 import { useDispatch } from "react-redux";
