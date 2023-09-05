@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import store from "src/store";
-import { setCatalog, setUser } from "src/store/actions";
+// import { setCatalog, setUser } from "src/store/actions";
 import UsersService from "src/utils/api/services/Users";
 // import { JWTPayload } from "src/utils/interfaces/jwt-payload.interface";
 import { getItem } from "src/utils/local-storage";

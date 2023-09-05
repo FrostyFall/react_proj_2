@@ -1,6 +1,6 @@
 import { addItem } from "src/utils/local-storage";
 import client from "../client";
-import { IBackAuth } from "src/utils/interfaces/back-auth.interface";
+// import { IBackAuth } from "src/utils/interfaces/back-auth.interface";
 import { IUser } from "src/utils/interfaces/user.interface";
 
 const UsersService = {
