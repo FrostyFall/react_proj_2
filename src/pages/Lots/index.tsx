@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { APP_ROUTES } from "src/utils/constants";
 import LotTable from "src/components/ui/LotTable";
 import { ILot } from "src/utils/interfaces/lot.interface";
+import LotInfo from "src/components/ui/LotInfo";
 // import CatalogService from "src/utils/api/services/Catalog";
 
 export default function Lots() {
@@ -46,6 +47,7 @@ export default function Lots() {
     <Wrap>
       <SearchInput type='text' placeholder='Search' />
       <LotTable lots={lots} />
+      {/* <LotInfo/> */}
     </Wrap>
   );
 }

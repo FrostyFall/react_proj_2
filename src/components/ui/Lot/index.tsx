@@ -22,14 +22,13 @@ export default function Lot(props: Props) {
   // ));
 
   // const lots = props.lots.map((lot) => <Lot key={lot.id} />);
-
   return (
     <Wrap>
-      <LotField $width={15}>{props.lot.id}</LotField>
-      <LotField $width={30}>{props.lot.title}</LotField>
-      <LotField $width={20}>{props.lot.price}</LotField>
-      <LotField $width={20}>{props.lot.minBid}</LotField>
-      <LotField $width={15}>{props.lot.status}</LotField>
+        <LotField $width={15}>{props.lot.id}</LotField>
+        <LotField $width={30}>{props.lot.title}</LotField>
+        <LotField $width={20}>{props.lot.price}</LotField>
+        <LotField $width={20}>{props.lot.minBid}</LotField>
+        <LotField $width={15}>{props.lot.status}</LotField>
     </Wrap>
   );
 }
