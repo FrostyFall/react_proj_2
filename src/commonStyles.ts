@@ -191,3 +191,17 @@ export const StarWrapper = styled.div<{ $isActive: boolean }>`
     fill: ${(props) => (props.$isActive ? "#1b57ff" : "#bbbbbb")};
   }
 `;
+
+export const SearchInput = styled.input`
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  color: #fff;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 0.75em 1.5em;
+  min-width: 325px;
+
+  &::placeholder {
+    color: rgba(93, 93, 93, 1);
+  }
+`;

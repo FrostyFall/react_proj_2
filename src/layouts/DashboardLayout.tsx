@@ -23,4 +23,5 @@ const Wrap = styled.div`
 const OutletWrapper = styled.section`
   background-color: var(--bg-secondary);
   width: 100%;
+  padding: 2rem;
 `;

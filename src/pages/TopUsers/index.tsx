@@ -1,5 +1,5 @@
-import { ContentContainer, Title } from "src/commonStyles";
-import { Container, Wrap } from "./styled";
+import { ContentContainer, SearchInput, Title } from "src/commonStyles";
+import { Wrap } from "./styled";
 import { IStore } from "src/store/interfaces/store.interface";
 import { useSelector } from "react-redux";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
@@ -12,16 +12,34 @@ import { getItem } from "src/utils/local-storage";
 import jwt from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { APP_ROUTES } from "src/utils/constants";
+import { IUser } from "src/utils/interfaces/user.interface";
+import UserTable from "src/components/ui/UserTable";
 // import CatalogService from "src/utils/api/services/Catalog";
 
 export default function TopUsers() {
-  // const catalog = useSelector((store: IStore) => store.catalog.data);
+  const users: IUser[] = [
+    {
+      id: 0,
+      firstName: "Dick",
+      lastName: "Grayson",
+      email: "cock@gmail.com",
+      quantity: 1,
+    },
+    {
+      id: 1,
+      firstName: "Jane",
+      lastName: "Smith",
+      email: "smith@gmail.com",
+      quantity: 5,
+    },
+  ];
 
-  // const cards = catalog.map((card) => (
-  //   <CatalogCard key={card.id} catalogCard={card} />
-  // ));
-
-  return <></>;
+  return (
+    <Wrap>
+      <SearchInput type='text' placeholder='Search' />
+      <UserTable users={users} />
+    </Wrap>
+  );
 }
 
 // export const dashboardLoader = async () => {

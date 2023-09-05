@@ -7,4 +7,5 @@ export interface ILot {
   minBid: number;
   startDate: string;
   lotDurationInSec: number;
+  status: string;
 }

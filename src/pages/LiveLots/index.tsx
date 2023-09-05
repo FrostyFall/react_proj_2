@@ -1,5 +1,5 @@
-import { ContentContainer, Title } from "src/commonStyles";
-import { Container, Wrap } from "./styled";
+import { ContentContainer, SearchInput, Title } from "src/commonStyles";
+import { Wrap } from "./styled";
 import { IStore } from "src/store/interfaces/store.interface";
 import { useSelector } from "react-redux";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
@@ -12,16 +12,42 @@ import { getItem } from "src/utils/local-storage";
 import jwt from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { APP_ROUTES } from "src/utils/constants";
+import { ILot } from "src/utils/interfaces/lot.interface";
+import LotTable from "src/components/ui/LotTable";
 // import CatalogService from "src/utils/api/services/Catalog";
 
 export default function LiveLots() {
-  // const catalog = useSelector((store: IStore) => store.catalog.data);
+  const lots: ILot[] = [
+    {
+      id: 0,
+      authorId: 0,
+      participantsIds: [],
+      title: "Dick",
+      price: 200,
+      minBid: 100,
+      startDate: new Date().toISOString(),
+      lotDurationInSec: 1000,
+      status: "active",
+    },
+    {
+      id: 0,
+      authorId: 0,
+      participantsIds: [],
+      title: "Big",
+      price: 200,
+      minBid: 100,
+      startDate: new Date().toISOString(),
+      lotDurationInSec: 1000,
+      status: "waiting",
+    },
+  ];
 
-  // const cards = catalog.map((card) => (
-  //   <CatalogCard key={card.id} catalogCard={card} />
-  // ));
-
-  return <></>;
+  return (
+    <Wrap>
+      <SearchInput type='text' placeholder='Search' />
+      <LotTable lots={lots} />
+    </Wrap>
+  );
 }
 
 // export const dashboardLoader = async () => {

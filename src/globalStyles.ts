@@ -13,16 +13,19 @@ const GlobalStyles = createGlobalStyle`
     --bg-primary: rgba(0, 0, 0, 1);
     --bg-secondary: rgba(21, 21, 21, 1);
     --primary: rgba(255, 0, 128, 1);
+    --primary-dark: rgba(245, 0, 128, 1);
     font-size: 16px;
   }
 
   html {
     scroll-behavior: smooth;
+    background-color: var(--bg-primary);
   }
 
   body {
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
     line-height: 1.4;
+    background-color: var(--bg-primary);
   }
 
   img,
