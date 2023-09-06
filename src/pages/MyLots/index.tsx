@@ -3,7 +3,7 @@ import { InnerWrap, Wrap, Button } from "./styled";
 import { IStore } from "src/store/interfaces/store.interface";
 import { useSelector } from "react-redux";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import store from "src/store";
 // import { setCatalog, setUser } from "src/store/actions";
 import UsersService from "src/utils/api/services/Users";
@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { APP_ROUTES } from "src/utils/constants";
 import LotTable from "src/components/ui/LotTable";
 import { ILot } from "src/utils/interfaces/lot.interface";
+import CreateLotModal from "src/components/ui/CreateLotModal";
 // import CatalogService from "src/utils/api/services/Catalog";
 
 export default function MyLots() {
@@ -41,15 +42,25 @@ export default function MyLots() {
       status: "waiting",
     },
   ];
+  const [isModalActive, setModalActive] = useState(false);
 
   return (
-    <Wrap>
-      <InnerWrap>
-        <SearchInput type='text' placeholder='Search' />
-        <Button>Create Lot</Button>
-      </InnerWrap>
-      <LotTable lots={lots} />
-    </Wrap>
+    <>
+      <Wrap>
+        <InnerWrap>
+          <SearchInput type="text" placeholder="Search" />
+          <Button
+            onClick={() => {
+              setModalActive(true);
+            }}
+          >
+            Create Lot
+          </Button>
+        </InnerWrap>
+        <LotTable lots={lots} />
+      </Wrap>
+      <CreateLotModal isActive={isModalActive} setModalActive={setModalActive} />
+    </>
   );
 }
 // export const dashboardLoader = async () => {

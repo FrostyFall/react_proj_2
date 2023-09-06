@@ -12,7 +12,7 @@ import { BidButton } from "../LotInfo/styled";
 
 interface Props {
   isActive: Boolean;
-  setModalActive: Dispatch<SetStateAction<Boolean>>;
+  setModalActive: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function BidModal(props: Props) {
@@ -52,7 +52,7 @@ export default function BidModal(props: Props) {
               required: { value: true, message: "Enter a field" },
               min: {
                 value: MIN_ADDITION,
-                message: "Must be not less thsn a min addition ",
+                message: "Must be not less than a min addition",
               },
               maxLength: {
                 value: 30,

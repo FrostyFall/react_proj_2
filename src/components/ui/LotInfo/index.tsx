@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BidButton, Container, TextField, Wrapper } from "./styled";
-import { useParams } from "react-router-dom";
 import BidModal from "../BidModal";
 
 export default function LotInfo() {
-  const [isModalActive, setModalActive] = useState<Boolean>(false);
+  const [isModalActive, setModalActive] = useState(false);
 
   return (
     <>
@@ -25,7 +24,6 @@ export default function LotInfo() {
         <BidButton>Bid</BidButton>
       </Wrapper>
       <BidModal isActive={isModalActive} setModalActive={setModalActive} />
-      {/* */}
     </>
   );
 }
