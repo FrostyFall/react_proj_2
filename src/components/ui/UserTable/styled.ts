@@ -16,10 +16,17 @@ export const TableHeader = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const TableHeading = styled.span<{ $width: number }>`
+export const TableHeading = styled.span<{ $width: number; $active: boolean }>`
   display: inline-block;
   width: ${(props) => `${props.$width}%`};
-  color: rgba(93, 93, 93, 1);
+  color: ${(props) =>
+    props.$active ? "rgba(193, 193, 193, 1)" : "rgba(93, 93, 93, 1)"};
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 1) !important;
+  }
 `;
 
 export const TableContent = styled.div`
