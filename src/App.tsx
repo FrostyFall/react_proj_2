@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Navigate,
   Route,
@@ -7,7 +8,6 @@ import {
 } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import NotFound from "./components/ui/NotFound";
-import React from "react";
 import { APP_ROUTES } from "./utils/constants";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Lots from "./pages/Lots";

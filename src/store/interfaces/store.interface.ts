@@ -1,7 +1,3 @@
-// import { IAuthState } from "./auth.interface";
-// import { ICatalogState } from "./catalog.interface";
-// import { ICompaniesState } from "./companies.interface";
-
 import { IAllLotsState } from "./all-lots.interface";
 import { ILiveLotsState } from "./live-lots.interface";
 import { IMyLotsState } from "./my-lots.interface";

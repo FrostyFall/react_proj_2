@@ -46,9 +46,6 @@ export default function LotInfo() {
 
   useEffect(() => {
     if (lot) {
-      // const newLot = { ...lot };
-      // newLot.price = +lot.price + +bidPrice;
-      // console.log("here", +lot.price + +bidPrice);
       if (type === "all-lots") {
         dispatch(
           updateLotPrice({ id: lot.id, newPrice: +lot.price + +bidPrice })

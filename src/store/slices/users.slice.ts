@@ -41,18 +41,6 @@ export const usersSlice = createSlice({
     resetUsersSearch: (state) => {
       state.search = "";
     },
-    // setCompanies: (state, { payload }: PayloadAction<ICompany[]>) => {
-    //   state.data = payload;
-    // },
-    // resetCompanies: (state) => {
-    //   state.data = [];
-    // },
-    // setActivatedCompany: (state, { payload }: PayloadAction<ICompany>) => {
-    //   state.activatedCompany = payload;
-    // },
-    // resetActivatedCompany: (state) => {
-    //   state.activatedCompany = null;
-    // },
   },
 });
 

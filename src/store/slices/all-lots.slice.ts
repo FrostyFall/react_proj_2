@@ -1,6 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "src/utils/interfaces/user.interface";
-import { IUsersState } from "../interfaces/users.interface";
 import { ILot } from "src/utils/interfaces/lot.interface";
 import { IAllLotsState } from "../interfaces/all-lots.interface";
 

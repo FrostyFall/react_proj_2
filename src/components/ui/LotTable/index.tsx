@@ -1,11 +1,5 @@
-// import { ContentContainer } from "./styled";
-// import { Wrap } from "./styled";
 import { TableContent, TableHeader, TableHeading, Wrap } from "./styled";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { removeItem } from "src/utils/local-storage";
 import { useDispatch, useSelector } from "react-redux";
-// import { resetUser } from "src/store/actions";
-import { APP_ROUTES } from "../../../utils/constants";
 import React, { useEffect, useState } from "react";
 import { ILot } from "src/utils/interfaces/lot.interface";
 import Lot from "../Lot";

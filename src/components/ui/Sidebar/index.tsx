@@ -1,23 +1,11 @@
-// import { ContentContainer } from "./styled";
-// import { Wrap } from "./styled";
-import { Aside, Li, Ul } from "./styled";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { removeItem } from "src/utils/local-storage";
-import { useDispatch } from "react-redux";
-// import { resetUser } from "src/store/actions";
-import { APP_ROUTES } from "../../../utils/constants";
 import React from "react";
+import { Aside, Li, Ul } from "./styled";
+import { useLocation, useNavigate } from "react-router-dom";
+import { APP_ROUTES } from "../../../utils/constants";
 
 export default function Sidebar() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
-  const onActivateTab = () => {
-    // removeItem("token");
-    // dispatch(resetUser());
-    // navigate(APP_ROUTES.LOGIN, { replace: true });
-  };
 
   return (
     <Aside>
