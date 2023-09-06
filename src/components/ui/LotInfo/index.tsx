@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BidButton, Container, TextField, Wrapper } from "./styled";
+import { BackButton, BidButton, Container, TextField, Wrapper } from "./styled";
 import BidModal from "../BidModal";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -85,7 +85,7 @@ export default function LotInfo() {
           Bid
         </BidButton>
       </Wrapper>
-      <button
+      <BackButton
         onClick={() => {
           if (type === "all-lots") {
             navigate(`../${APP_ROUTES.LOTS}`);
@@ -99,7 +99,7 @@ export default function LotInfo() {
         }}
       >
         Back
-      </button>
+      </BackButton>
       <BidModal
         minBid={lot?.minBid ?? 0}
         isActive={isModalActive}

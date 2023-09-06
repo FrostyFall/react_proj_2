@@ -49,3 +49,21 @@ export const BidButton = styled.button`
   font-size: 20px;
   color: #fff;
 `;
+
+export const BackButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  background: #000;
+  border: 3px solid #ff0080;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #ff0080;
+  margin: 20px 30px;
+
+  &:hover {
+    color: #fff;
+  }
+`;
