@@ -14,21 +14,15 @@ interface Props {
 }
 
 export default function Lot(props: Props) {
-  // const dispatch = useDispatch();
-  // const catalog = useSelector((store: IStore) => store.catalog.data);
+  const navigate = useNavigate();
 
-  // const cards = catalog.map((card) => (
-  //   <CatalogCard key={card.id} catalogCard={card} />
-  // ));
-
-  // const lots = props.lots.map((lot) => <Lot key={lot.id} />);
   return (
-    <Wrap>
-        <LotField $width={15}>{props.lot.id}</LotField>
-        <LotField $width={30}>{props.lot.title}</LotField>
-        <LotField $width={20}>{props.lot.price}</LotField>
-        <LotField $width={20}>{props.lot.minBid}</LotField>
-        <LotField $width={15}>{props.lot.status}</LotField>
+    <Wrap onClick={() => navigate(`${props.lot.id}`)}>
+      <LotField $width={15}>{props.lot.id}</LotField>
+      <LotField $width={30}>{props.lot.title}</LotField>
+      <LotField $width={20}>{props.lot.price}</LotField>
+      <LotField $width={20}>{props.lot.minBid}</LotField>
+      <LotField $width={15}>{props.lot.status}</LotField>
     </Wrap>
   );
 }

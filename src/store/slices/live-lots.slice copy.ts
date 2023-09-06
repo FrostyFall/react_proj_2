@@ -14,7 +14,7 @@ const allLots: ILot[] = [
     minBid: 50,
     startDate: new Date().toISOString(),
     lotDurationInSec: 1000,
-    status: "waiting",
+    status: "active",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const allLots: ILot[] = [
     minBid: 100,
     startDate: new Date().toISOString(),
     lotDurationInSec: 1000,
-    status: "waiting",
+    status: "active",
   },
 ];
 
@@ -39,6 +39,31 @@ export const liveLotsSlice = createSlice({
   name: "live-lots",
   initialState: InitialState,
   reducers: {
+    updateLiveLotPrice: (
+      state,
+      { payload }: PayloadAction<{ id: number; newPrice: number }>
+    ) => {
+      state.allLots = state.allLots.map((lot) => {
+        if (lot.id === payload.id) {
+          const newLot = { ...lot };
+          newLot.price = payload.newPrice;
+          return newLot;
+        }
+        return lot;
+      });
+      state.sortedLots = state.sortedLots.map((lot) => {
+        if (lot.id === payload.id) {
+          const newLot = { ...lot };
+          newLot.price = payload.newPrice;
+          return newLot;
+        }
+        return lot;
+      });
+    },
+    addLiveLot: (state, { payload }: PayloadAction<ILot>) => {
+      state.allLots = [...state.allLots, payload];
+      state.sortedLots = [...state.sortedLots, payload];
+    },
     setSortedLiveLots: (state, { payload }: PayloadAction<ILot[]>) => {
       state.sortedLots = payload;
     },

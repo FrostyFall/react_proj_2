@@ -26,4 +26,5 @@ const Container = styled.div`
 const H2 = styled.h2`
   font-weight: 500;
   font-size: 1.5rem;
+  color: #fff;
 `;

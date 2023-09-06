@@ -19,34 +19,33 @@ import LotInfo from "./components/ui/LotInfo";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Navigate to="/dashboard" />} />
+      <Route path='/' element={<RootLayout />}>
+        <Route index element={<Navigate to='/dashboard' />} />
 
-        <Route path="dashboard" element={<DashboardLayout />}>
+        <Route path='dashboard' element={<DashboardLayout />}>
           <Route index element={<Navigate to={APP_ROUTES.LOTS} />} />
+          <Route path={APP_ROUTES.LOTS} element={<Lots />} />
           <Route
-            path={APP_ROUTES.LOTS}
-            element={<Lots />}
-            // loader={companiesLoader}
+            path={APP_ROUTES.LOTS + "/:id"}
+            element={<LotInfo />}
+            loader={lotLoader}
           />
+          <Route path={APP_ROUTES.MY_LOTS} element={<MyLots />} />
           <Route
-            path={APP_ROUTES.MY_LOTS}
-            element={<MyLots />}
-            // loader={companiesLoader}
+            path={APP_ROUTES.MY_LOTS + "/:id"}
+            element={<LotInfo />}
+            loader={myLotLoader}
           />
+          <Route path={APP_ROUTES.LIVE_LOTS} element={<LiveLots />} />
           <Route
-            path={APP_ROUTES.LIVE_LOTS}
-            element={<LiveLots />}
-            // loader={companiesLoader}
+            path={APP_ROUTES.LIVE_LOTS + "/:id"}
+            element={<LotInfo />}
+            loader={liveLotLoader}
           />
-          <Route
-            path={APP_ROUTES.TOP_USERS}
-            element={<TopUsers />}
-            // loader={companiesLoader}
-          />
+          <Route path={APP_ROUTES.TOP_USERS} element={<TopUsers />} />
         </Route>
 
-        <Route path="*" element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />
       </Route>
     )
   );
@@ -56,49 +55,12 @@ function App() {
 
 export default App;
 
-// createRoutesFromElements(
-//   <Route path='/' element={<RootLayout />}>
-//     <Route index element={<Navigate to={APP_ROUTES.CATALOG} />} />
-
-//     <Route
-//       path={APP_ROUTES.LOGIN}
-//       element={<Login />}
-//       loader={loginLoader}
-//     />
-//     <Route
-//       path={APP_ROUTES.REGISTER}
-//       element={<Register />}
-//       loader={registerLoader}
-//     />
-
-//     <Route element={<ProtectedRoute role='user' />}>
-//       <Route index element={<Navigate to={APP_ROUTES.CATALOG} />} />
-
-//       <Route path={APP_ROUTES.CATALOG} element={<DashboardLayout />}>
-//         <Route index element={<Home />} loader={dashboardLoader} />
-//         <Route
-//           path={`${APP_ROUTES.CATALOG}/:name`}
-//           element={<Companies />}
-//           loader={companiesLoader}
-//         />
-//         <Route
-//           path={`${APP_ROUTES.CATALOG}/:name/:id`}
-//           element={<Company />}
-//           loader={companyLoader}
-//         />
-//         <Route
-//           path='companies/add'
-//           element={<AddCompany />}
-//           loader={dashboardLoader}
-//         />
-//         <Route
-//           path='cabinet'
-//           element={<PersonalCabinet />}
-//           loader={dashboardLoader}
-//         />
-//       </Route>
-//     </Route>
-
-//     <Route path='*' element={<NotFound />} />
-//   </Route>
-// )
+export const lotLoader = async () => {
+  return { type: "all-lots" };
+};
+export const myLotLoader = async () => {
+  return { type: "my-lots" };
+};
+export const liveLotLoader = async () => {
+  return { type: "live-lots" };
+};

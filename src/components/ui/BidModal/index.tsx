@@ -13,10 +13,11 @@ import { BidButton } from "../LotInfo/styled";
 interface Props {
   isActive: Boolean;
   setModalActive: Dispatch<SetStateAction<boolean>>;
+  setBidPrice: Dispatch<SetStateAction<number>>;
+  minBid: number;
 }
 
 export default function BidModal(props: Props) {
-  const MIN_ADDITION = 10; //потом передавать это через пропсы
   const {
     register,
     handleSubmit,
@@ -24,10 +25,9 @@ export default function BidModal(props: Props) {
     reset,
   } = useForm<{ auctionBid: number }>();
 
-  function onSubmit() {
-    console.log("cock");
-
-    reset({ auctionBid: MIN_ADDITION });
+  function onSubmit(data: { auctionBid: number }) {
+    props.setBidPrice(data.auctionBid);
+    reset({ auctionBid: props.minBid });
     props.setModalActive(false);
   }
 
@@ -35,7 +35,7 @@ export default function BidModal(props: Props) {
     <Wrapper
       $isActive={props.isActive}
       onClick={() => {
-        reset({ auctionBid: MIN_ADDITION });
+        reset({ auctionBid: props.minBid });
         props.setModalActive(false);
       }}
     >
@@ -47,11 +47,11 @@ export default function BidModal(props: Props) {
         <Text>How much you want to bid?(min addition)</Text>
         <ModalForm onSubmit={handleSubmit(onSubmit)}>
           <Input
-            defaultValue={MIN_ADDITION}
+            defaultValue={props.minBid}
             {...register("auctionBid", {
               required: { value: true, message: "Enter a field" },
               min: {
-                value: MIN_ADDITION,
+                value: props.minBid,
                 message: "Must be not less than a min addition",
               },
               maxLength: {
@@ -63,10 +63,10 @@ export default function BidModal(props: Props) {
                 message: "Only numbers",
               },
             })}
-            autoComplete="off"
+            autoComplete='off'
           />
           <ErrorText>{errors.auctionBid?.message}</ErrorText>
-          <BidButton type="submit">Bid</BidButton>
+          <BidButton type='submit'>Bid</BidButton>
         </ModalForm>
       </Container>
     </Wrapper>

@@ -39,6 +39,31 @@ export const myLotsSlice = createSlice({
   name: "my-lots",
   initialState: InitialState,
   reducers: {
+    updateMyLotPrice: (
+      state,
+      { payload }: PayloadAction<{ id: number; newPrice: number }>
+    ) => {
+      state.allLots = state.allLots.map((lot) => {
+        if (lot.id === payload.id) {
+          const newLot = { ...lot };
+          newLot.price = payload.newPrice;
+          return newLot;
+        }
+        return lot;
+      });
+      state.sortedLots = state.sortedLots.map((lot) => {
+        if (lot.id === payload.id) {
+          const newLot = { ...lot };
+          newLot.price = payload.newPrice;
+          return newLot;
+        }
+        return lot;
+      });
+    },
+    addMyLot: (state, { payload }: PayloadAction<ILot>) => {
+      state.allLots = [...state.allLots, payload];
+      state.sortedLots = [...state.sortedLots, payload];
+    },
     setSortedMyLots: (state, { payload }: PayloadAction<ILot[]>) => {
       state.sortedLots = payload;
     },

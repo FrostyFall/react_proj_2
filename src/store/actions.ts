@@ -6,11 +6,26 @@ import usersSlice from "./slices/users.slice";
 export const { setSortedUsers, setUsersSearch, resetUsersSearch } =
   usersSlice.actions;
 
-export const { setSortedLots, setLotsSearch, resetLotsSearch } =
-  lotsSlice.actions;
+export const {
+  updateLotPrice,
+  addLot,
+  setSortedLots,
+  setLotsSearch,
+  resetLotsSearch,
+} = lotsSlice.actions;
 
-export const { setMyLotsSearch, setSortedMyLots, resetMyLotsSearch } =
-  myLotsSlice.actions;
+export const {
+  addMyLot,
+  setMyLotsSearch,
+  setSortedMyLots,
+  resetMyLotsSearch,
+  updateMyLotPrice,
+} = myLotsSlice.actions;
 
-export const { setLiveLotsSearch, setSortedLiveLots, resetLiveLotsSearch } =
-  liveLotsSlice.actions;
+export const {
+  updateLiveLotPrice,
+  addLiveLot,
+  setLiveLotsSearch,
+  setSortedLiveLots,
+  resetLiveLotsSearch,
+} = liveLotsSlice.actions;
