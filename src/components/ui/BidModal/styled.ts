@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  display: flex;
+export const Wrapper = styled.div<{ $isActive: Boolean }>`
+  display: ${(props) => (props.$isActive ? "flex" : "none")};
   justify-content: center;
   align-items: center;
   position: absolute;

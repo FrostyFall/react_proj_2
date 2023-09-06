@@ -12,6 +12,7 @@ import { APP_ROUTES } from "src/utils/constants";
 import LotTable from "src/components/ui/LotTable";
 import { ILot } from "src/utils/interfaces/lot.interface";
 import { setLotsSearch, setSortedLots } from "src/store/actions";
+import LotInfo from "src/components/ui/LotInfo";
 // import CatalogService from "src/utils/api/services/Catalog";
 
 export default function Lots() {

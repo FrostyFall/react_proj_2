@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import {
   Container,
   ErrorText,
@@ -10,21 +10,40 @@ import {
 import { useForm } from "react-hook-form";
 import { BidButton } from "../LotInfo/styled";
 
-export default function BidModal() {
+interface Props {
+  isActive: Boolean;
+  setModalActive: Dispatch<SetStateAction<Boolean>>;
+}
+
+export default function BidModal(props: Props) {
   const MIN_ADDITION = 10; //потом передавать это через пропсы
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<{ auctionBid: number }>();
 
   function onSubmit() {
     console.log("cock");
+
+    reset({ auctionBid: MIN_ADDITION });
+    props.setModalActive(false);
   }
 
   return (
-    <Wrapper>
-      <Container>
+    <Wrapper
+      $isActive={props.isActive}
+      onClick={() => {
+        reset({ auctionBid: MIN_ADDITION });
+        props.setModalActive(false);
+      }}
+    >
+      <Container
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <Text>How much you want to bid?(min addition)</Text>
         <ModalForm onSubmit={handleSubmit(onSubmit)}>
           <Input

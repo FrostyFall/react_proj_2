@@ -14,14 +14,15 @@ import Lots from "./pages/Lots";
 import MyLots from "./pages/MyLots";
 import LiveLots from "./pages/LiveLots";
 import TopUsers from "./pages/TopUsers";
+import LotInfo from "./components/ui/LotInfo";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<RootLayout />}>
-        <Route index element={<Navigate to='/dashboard' />} />
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Navigate to="/dashboard" />} />
 
-        <Route path='dashboard' element={<DashboardLayout />}>
+        <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<Navigate to={APP_ROUTES.LOTS} />} />
           <Route
             path={APP_ROUTES.LOTS}
@@ -45,7 +46,7 @@ function App() {
           />
         </Route>
 
-        <Route path='*' element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     )
   );
